@@ -14,14 +14,19 @@ Product.belongsTo(Category, {
   onDelete: 'CASCADE',
 });
 
+
 Product.belongsToMany(Tag,{
-  through: ProductTag,
-  foreignKey: 'product_id',
+  through: {
+    model: ProductTag
+  },
+  as: 'tag_id',
 });
 
 Tag.belongsToMany(Product,{
-  through: ProductTag,
-  foreignKey: 'tag_id',
+  through: {
+    model: ProductTag
+  },
+  as: 'product_id',
 });
 
 module.exports = {
