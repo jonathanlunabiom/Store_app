@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   });
     res.status(200).json(categorydata)
   }catch(err){
-    res.status(500).json(err)
+    res.status(500).json(err.message)
   }
   // be sure to include its associated Products
 });
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
     });
     res.status(200).json(categorybyID)
   }catch(err){
-    res.status(500).json(err)
+    res.status(500).json(err.message)
   }
 });
 
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     });
     res.status(200).json(newCategory)
   }catch(err){
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
     }
     res.status(200).json(Category)
   }catch(err){
-    res.status(404).json(err);
+    res.status(404).json(err.message);
   }
 });
 
@@ -68,9 +68,9 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({message: 'No category with this id'});
       return;
     }
-    res.status(200).json(`${CategoryToDelete} has been deleted`);
+    res.status(200).json(`Category deleted`);
   }catch(err){
-    res.status(500).json
+    res.status(500).json(err.message)
   }
 });
 
