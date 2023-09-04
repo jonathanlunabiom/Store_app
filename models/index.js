@@ -17,16 +17,16 @@ Product.belongsTo(Category, {
 
 Product.belongsToMany(Tag,{
   through: {
-    model: ProductTag
+    model: ProductTag,
   },
-  as: 'tag_id',
+  foreignKey: 'product_id',
 });
 
 Tag.belongsToMany(Product,{
   through: {
-    model: ProductTag
+    model: ProductTag,
   },
-  as: 'product_id',
+  foreignKey: 'tag_id'
 });
 
 module.exports = {
