@@ -14,7 +14,6 @@ Product.belongsTo(Category, {
   onDelete: 'CASCADE',
 });
 
-
 Product.belongsToMany(Tag,{
   through: {
     model: ProductTag,
